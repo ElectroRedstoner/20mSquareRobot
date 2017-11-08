@@ -1,7 +1,9 @@
 package org.usfirst.frc.team6880.robot;
 
+import edu.wpi.first.wpilibj.AnalogGyro;
 import edu.wpi.first.wpilibj.Encoder;
-import edu.wpi.first.wpilibj.IterativeRobot;
+import edu.wpi.first.wpilibj.SampleRobot;
+import edu.wpi.first.wpilibj.interfaces.Gyro;
 import edu.wpi.first.wpilibj.RobotDrive;
 
 /**
@@ -11,26 +13,30 @@ import edu.wpi.first.wpilibj.RobotDrive;
  * creating this project, you must also update the manifest file in the resource
  * directory.
  */
-public class Robot extends IterativeRobot {
+public class Robot extends SampleRobot {
 	RobotDrive driveSys;
 	Encoder leftEnc;
 	Encoder rightEnc;
+	Gyro gyro;
 
 	@Override
 	public void robotInit() {
 		driveSys = new RobotDrive(0, 1, 2, 3);
 		leftEnc = new Encoder(0, 1, false, Encoder.EncodingType.k4X);
-		leftEnc.setDistancePerPulse(RobotMap.distPerPulse); //(pi*(3 inch radius)*(1cm/2.54in)*(1m/100cm)^2)
+		leftEnc.setDistancePerPulse(RobotMap.distPerPulse);
 		rightEnc = new Encoder(2, 3, false, Encoder.EncodingType.k4X);
 		rightEnc.setDistancePerPulse(RobotMap.distPerPulse);
+		gyro = new AnalogGyro(1);
 	}
 
 	@Override
-	public void autonomousInit() {
-	}
-
-	@Override
-	public void autonomousPeriodic() {
-		
+	public void autonomous() {
+		while (true) {
+			driveSys.arcadeDrive(1.0, 0.0);
+			// If we have traveled 20, let's turn
+			if (leftEnc.getDistance() < 20) {
+				break;
+			}
+		}
 	}
 }
