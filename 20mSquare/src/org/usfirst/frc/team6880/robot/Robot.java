@@ -39,8 +39,10 @@ public class Robot extends SampleRobot {
 				if (numturns++ >= 4) break;
 
 				//                                                v---Distance between wheels / 2
-				while (leftEnc.getDistance() < Math.PI * Math.pow(1.0, 2.0))
+				while (leftEnc.getDistance() < Math.PI * Math.pow(1.0, 2.0)) {
 					driveSys.tankDrive(-1.0, 1.0);
+					Timer.delay(0.05);
+				}
 				
 				leftEnc.reset();
 				rightEnc.reset();
