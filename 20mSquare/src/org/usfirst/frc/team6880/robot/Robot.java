@@ -47,7 +47,7 @@ public class Robot extends SampleRobot {
 				leftEnc.reset();
 				rightEnc.reset();
 			}
-			Timer.delay(.05);
+			Timer.delay(0.05);
 		}
 	}
 }

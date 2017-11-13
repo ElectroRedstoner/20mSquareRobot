@@ -8,5 +8,5 @@ package org.usfirst.frc.team6880.robot;
  */
 public class RobotMap {
 	// (pi*((3in radius)*(2.54in/1cm)*(1m/100cm))^2)/360
-	public static double distPerPulse = Math.PI * Math.pow(3.0*0.0254, 2) / 360.0;
+	public static double distPerPulse = Math.PI * Math.pow(3.0 * 0.0254, 2) / 360.0;
 }
