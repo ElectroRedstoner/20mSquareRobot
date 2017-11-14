@@ -34,12 +34,11 @@ public class Robot extends SampleRobot {
 			driveSys.drive(1.0, rightEnc.get() - leftEnc.get());
 			
 			// If we have traveled 20m, let's turn
-			if (leftEnc.getDistance() > 20) {
-				// If this is the 4th time (or, if I messed up with programming, greater) we should turn, stop robot
-				if (numturns++ >= 4) break;
+			if (leftEnc.getDistance() >= 20) {
+				// If this is the 4th (or greater, if I messed up) time we should turn, stop robot
+				if (numturns++ >= 1 /*4 Using 1 for now so that the robot doesn't turn*/) break;
 
-				//                             v---Distance between wheels / 2
-				while (leftEnc.getDistance() < 1 * Math.PI / 4) {
+				while (leftEnc.getDistance() < RobotMap.wheelBase * Math.PI / 4) {
 					driveSys.tankDrive(-1.0, 1.0);
 					Timer.delay(0.05);
 				}
