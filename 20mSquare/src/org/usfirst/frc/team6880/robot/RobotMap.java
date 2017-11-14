@@ -7,6 +7,9 @@ package org.usfirst.frc.team6880.robot;
  * floating around.
  */
 public class RobotMap {
-	// (pi*((3in radius)*(2.54in/1cm)*(1m/100cm))^2)/360
-	public static double distPerPulse = Math.PI * Math.pow(3.0 * 0.0254, 2) / 360.0;
+	/* (6in diameter)(2.54cm/1in)(1m/100cm) = 3*.0254 meter diameter
+	 * pi(6*.0254) = 6*.0254*pi meter circumference
+	 * 360 counts/circumference = 6*.0254*pi/360 m/count
+	 */
+	public static double distPerPulse = 6.0 * Math.PI * 0.0254 / 360.0;
 }
