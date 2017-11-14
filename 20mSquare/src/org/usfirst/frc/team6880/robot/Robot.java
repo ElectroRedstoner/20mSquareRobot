@@ -29,7 +29,7 @@ public class Robot extends SampleRobot {
 	@Override
 	public void autonomous() {
 		int numturns = 0;
-		while (true) {
+		while (isAutonomous()) {
 			// Make sure we drive straight
 			driveSys.drive(1.0, rightEnc.get() - leftEnc.get());
 			
