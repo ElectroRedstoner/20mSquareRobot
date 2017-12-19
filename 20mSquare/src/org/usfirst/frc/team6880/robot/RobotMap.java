@@ -8,7 +8,7 @@ package org.usfirst.frc.team6880.robot;
  */
 public class RobotMap {
 	public static double wheelBase = 0.703;
-	/* (6in diameter)(2.54cm/1in)(1m/100cm) = 3*.0254 meter diameter
+	/* (6in diameter)(2.54cm/1in)(1m/100cm) = 6*.0254 meter diameter
 	 * pi(6*.0254) = 6*.0254*pi meter circumference
 	 * 360 counts/circumference = 6*.0254*pi/360 m/count
 	 */
